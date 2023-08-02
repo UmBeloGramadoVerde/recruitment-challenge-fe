@@ -36,7 +36,7 @@ React Query uses re-fetch on page focus, since the mock BE randomly assigns EUR 
 
 Used React.lazy and Suspense to lazy load the bigger components reducing the initial js bundle that has to be loaded to improve the first page load time.
 
-Shared components, hooks and types are placed under src/ and while app/ folder is reserved for rounting and subfolder are able to hold feature specific components, hooks and types
+Shared components, hooks and types are placed under src/ and while app/ folder is reserved for rounting and subfolders are able to hold feature specific components, hooks and types
 
 Used https://ui.shadcn.com/ for component library. Easy to use, supports typescript, completely customisable, compatible with tailwindCSS. Components are added using: npx shadcn-ui@latest add \[component\]
 

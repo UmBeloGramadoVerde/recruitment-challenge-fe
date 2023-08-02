@@ -13,8 +13,11 @@ import Loader from "@/components/Loader/Loader";
 import React, { Suspense } from "react";
 
 export default function HomePage() {
-  const { data: transactions, isLoading: loadingTransactions } = useTransactions()
-  const { data: eurRates, isLoading: loadingEurRates } = useEurRates()
+  const { data: transactionsData, isLoading: loadingTransactions } =
+    useTransactions();
+  const transactions = transactionsData ?? [];
+  const { data: eurRatesData, isLoading: loadingEurRates } = useEurRates();
+  const eurRates = eurRatesData ?? {};
   const centeredLoaderElement = (
     <div className="flex justify-center">
       <Loader />
@@ -30,7 +33,9 @@ export default function HomePage() {
         <section className="gap-3 flex flex-col">
           <h2 className="text-xl">Transactions Table</h2>
           <div className="px-5 py-3 border border-dark dark:border-light rounded-md">
-            {loadingTransactions || loadingEurRates ? centeredLoaderElement : (
+            {loadingTransactions || loadingEurRates ? (
+              centeredLoaderElement
+            ) : (
               <Suspense fallback={centeredLoaderElement}>
                 <TransactionTable
                   transactions={transactions}
@@ -43,10 +48,10 @@ export default function HomePage() {
         <section className="gap-3 flex flex-col">
           <h2 className="text-xl">Transactions Summary Table</h2>
           <div className="px-5 py-3 border border-dark dark:border-light rounded-md">
-            {loadingTransactions || loadingEurRates ? centeredLoaderElement : (
-              <Suspense
-                fallback={centeredLoaderElement}
-              >
+            {loadingTransactions || loadingEurRates ? (
+              centeredLoaderElement
+            ) : (
+              <Suspense fallback={centeredLoaderElement}>
                 <TransactionSummaryTable
                   transactions={transactions}
                   eurRates={eurRates}
