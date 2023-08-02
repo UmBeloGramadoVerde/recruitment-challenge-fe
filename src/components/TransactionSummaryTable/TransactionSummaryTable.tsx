@@ -1,5 +1,3 @@
-"use client";
-
 import { EurRates, Transaction } from "@/types/transactions";
 import { useEffect } from "react";
 import { applyPrecision } from "@/utils";

@@ -28,15 +28,10 @@ In this app we are using next.js for it's simplified routing scheme, of of the b
 
 Used Next.js App router instead of Pages router for more flexibility, performance optimization and future proofing.
 
+Used React Query to handle data fetching, querying and caching. Makes it easier to handle infinite scrolling, refetching and retries in the future.
+
 Used React.lazy and Suspense to lazy load the bigger components reducing the initial js bundle that has to be loaded to improve the first page load time.
 
 Shared components, hooks and types are placed under src/ and while app/ folder is reserved for rounting and subfolder are able to hold feature specific components, hooks and types
 
-Used https://ui.shadcn.com/ for component library:
-    Easy to use, supports typescript, completely customisable, compatible with tailwindCSS
-
-Components are added using: npx shadcn-ui@latest add button
-
-Transactions and euro rates are most likely a data source that will be used in many places on the app, to prevent having the re-fetch this information many times we can implement a globalContext that is responsible for fetching and serving that data to different components/pages.
-
-Alternatively we could also use React Queries
+Used https://ui.shadcn.com/ for component library. Easy to use, supports typescript, completely customisable, compatible with tailwindCSS. Components are added using: npx shadcn-ui@latest add \[component\]

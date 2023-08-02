@@ -32,7 +32,7 @@ const ThemeSwitcher = () => {
   }, [darkMode]);
 
   return (
-    <Button onClick={toggleTheme} className="px-3 py-1">
+    <Button onClick={toggleTheme} className="px-3 py-1" variant="outline">
       {darkMode === "light" ? (
         <div>
           <Image
@@ -47,7 +47,7 @@ const ThemeSwitcher = () => {
           <Image
             width={16}
             height={16}
-            src="/images/light.png"
+            src="/images/light.svg"
             alt="light mode icon"
           />
         </div>

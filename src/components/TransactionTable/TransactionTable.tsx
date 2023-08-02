@@ -1,5 +1,3 @@
-"use client";
-
 import { EurRates, Transaction } from "@/types/transactions";
 import { applyPrecision, formatDate } from "@/utils";
 import { DynamicTable } from "@/components/DynamicTable/DynamicTable";

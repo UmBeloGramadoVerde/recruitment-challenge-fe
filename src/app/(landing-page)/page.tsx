@@ -13,10 +13,12 @@ import Loader from "@/components/Loader/Loader";
 import React, { Suspense } from "react";
 
 export default function HomePage() {
-  const { transactions, loading: loadingTransactions } = useTransactions();
+  const { data: transactions, isLoading: loadingTransactions } = useTransactions()
   console.log("transactions", transactions);
-  const { eurRates, loading: loadingEurRates } = useEurRates();
+  console.log("loadingTransactions", loadingTransactions);
+  const { data: eurRates, isLoading: loadingEurRates } = useEurRates()
   console.log("eurRates", eurRates);
+  console.log("loadingEurRates", loadingEurRates);
   const centeredLoaderElement = (
     <div className="flex justify-center">
       <Loader />

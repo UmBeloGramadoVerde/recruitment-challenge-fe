@@ -19,6 +19,7 @@ interface DynamicTableProps {
 }
 
 export const DynamicTable: React.FC<DynamicTableProps> = ({ data, cols }) => {
+  console.debug('data', data)
   return (
     <Table>
       <TableHeader>

@@ -1,23 +1,18 @@
 import { EurRates } from "@/types/transactions";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 export function useEurRates() {
-  const [eurRates, setEurRates] = useState<EurRates>({});
-  const [loading, setLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/eur-rates`)
+  const fetchEurRates = ()=> {
+    return fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/eur-rates`)
       .then((response) => response.json())
-      .then((data) => {
-        setEurRates(data);
-        setLoading(false);
-      })
       .catch((error) => {
         console.error("Error fetching euro rates:", error);
-        setLoading(false);
       });
-  }, []);
+  }
 
-  return {eurRates, loading};
+  return useQuery({
+    queryKey: ['eurRates'],
+    queryFn: () => fetchEurRates(),
+  })
 }
