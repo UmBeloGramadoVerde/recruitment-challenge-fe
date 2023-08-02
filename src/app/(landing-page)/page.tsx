@@ -14,11 +14,7 @@ import React, { Suspense } from "react";
 
 export default function HomePage() {
   const { data: transactions, isLoading: loadingTransactions } = useTransactions()
-  console.log("transactions", transactions);
-  console.log("loadingTransactions", loadingTransactions);
   const { data: eurRates, isLoading: loadingEurRates } = useEurRates()
-  console.log("eurRates", eurRates);
-  console.log("loadingEurRates", loadingEurRates);
   const centeredLoaderElement = (
     <div className="flex justify-center">
       <Loader />
@@ -30,9 +26,9 @@ export default function HomePage() {
         <ThemeSwitcher />
       </div>
       <div className="p-5 gap-5 flex flex-col">
-        <h1>Swissborg Challenge Frontend</h1>
+        <h1 className="text-2xl">Swissborg Challenge Frontend</h1>
         <section className="gap-3 flex flex-col">
-          <h2>Transactions Table</h2>
+          <h2 className="text-xl">Transactions Table</h2>
           <div className="px-5 py-3 border border-dark dark:border-light rounded-md">
             {loadingTransactions || loadingEurRates ? centeredLoaderElement : (
               <Suspense fallback={centeredLoaderElement}>
@@ -45,7 +41,7 @@ export default function HomePage() {
           </div>
         </section>
         <section className="gap-3 flex flex-col">
-          <h2>Transactions Summary Table</h2>
+          <h2 className="text-xl">Transactions Summary Table</h2>
           <div className="px-5 py-3 border border-dark dark:border-light rounded-md">
             {loadingTransactions || loadingEurRates ? centeredLoaderElement : (
               <Suspense

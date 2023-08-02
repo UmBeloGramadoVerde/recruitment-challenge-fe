@@ -1,6 +1,12 @@
 import { EurRates, Transaction } from "@/types/transactions";
 import { applyPrecision, formatDate } from "@/utils";
 import { DynamicTable } from "@/components/DynamicTable/DynamicTable";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/ui/tooltip"
 
 interface TransactionTableProps {
   transactions: Transaction[];
@@ -11,7 +17,6 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
   transactions,
   eurRates,
 }) => {
-
   const calculateEuroEquivalent = (
     currency: string,
     amount: number
@@ -46,12 +51,21 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
           transaction.currency,
           transaction.amount
         );
-        return eurEquiv
-          ? `${calculateEuroEquivalent(
-              transaction.currency,
-              transaction.amount
-            )} €`
-          : "-";
+        return eurEquiv ? (
+          `${calculateEuroEquivalent(
+            transaction.currency,
+            transaction.amount
+          )} €`
+        ) : (
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger className="pr-5">-</TooltipTrigger>
+              <TooltipContent>
+                <p>Conversion not available</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        );
       },
     },
     {

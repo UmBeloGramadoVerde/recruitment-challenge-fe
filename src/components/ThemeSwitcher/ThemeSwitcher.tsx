@@ -13,7 +13,6 @@ const ThemeSwitcher = () => {
 
   useEffect(() => {
     const prevDarkMode = localStorage.getItem("theme");
-    console.debug("prevDarkMode", prevDarkMode);
     if (prevDarkMode === "light" || prevDarkMode === "dark") {
       setDarkMode(prevDarkMode);
     } else {

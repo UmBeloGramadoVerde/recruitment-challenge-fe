@@ -30,6 +30,8 @@ Used Next.js App router instead of Pages router for more flexibility, performanc
 
 Used React Query to handle data fetching, querying and caching. Makes it easier to handle infinite scrolling, refetching and retries in the future.
 
+React Query uses re-fetch on page focus, since the mock BE randomly assigns EUR conversion values, seems like the prices jump all over the place, but that is because the variation is too big, in an actual app, tha implemented behaviour would be ideal, since updating the values of the transactions in a desired behaviour.
+
 Used React.lazy and Suspense to lazy load the bigger components reducing the initial js bundle that has to be loaded to improve the first page load time.
 
 Shared components, hooks and types are placed under src/ and while app/ folder is reserved for rounting and subfolder are able to hold feature specific components, hooks and types
