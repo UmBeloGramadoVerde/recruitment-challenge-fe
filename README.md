@@ -2,22 +2,24 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Running the app
 
+Tested on:
+node version 20.5.0
+yarn version 1.22.17
+
 First, install dependencies with:
 
 ```bash
-npm install
-# or
 yarn
+# or
+npm install
 ```
 
 Then, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 # or
-pnpm dev
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser.
@@ -37,3 +39,5 @@ Used React.lazy and Suspense to lazy load the bigger components reducing the ini
 Shared components, hooks and types are placed under src/ and while app/ folder is reserved for rounting and subfolder are able to hold feature specific components, hooks and types
 
 Used https://ui.shadcn.com/ for component library. Easy to use, supports typescript, completely customisable, compatible with tailwindCSS. Components are added using: npx shadcn-ui@latest add \[component\]
+
+As described on the task requirements, I did not focus on styling the app or making a visually striking landing page. I think what you guys are looking for is someone who knows how to use a modern stack, builds for scale and creates webapps with good performance. That's what this solution does. It is modern, well structured and performatic with components that are modular and maintainable.
