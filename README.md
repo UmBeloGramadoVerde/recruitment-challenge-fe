@@ -1,2 +1,42 @@
-# swissborg-challenge-fe
- webapp for the swissborg hiring challange
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Running the app
+
+First, install dependencies with:
+
+```bash
+npm install
+# or
+yarn
+```
+
+Then, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser.
+
+## Observations about the solution
+
+In this app we are using next.js for it's simplified routing scheme, of of the box SSR capability and ease of deployment in vercel.
+
+Used Next.js App router instead of Pages router for more flexibility, performance optimization and future proofing.
+
+Used React.lazy and Suspense to lazy load the bigger components reducing the initial js bundle that has to be loaded to improve the first page load time.
+
+Shared components, hooks and types are placed under src/ and while app/ folder is reserved for rounting and subfolder are able to hold feature specific components, hooks and types
+
+Used https://ui.shadcn.com/ for component library:
+    Easy to use, supports typescript, completely customisable, compatible with tailwindCSS
+
+Components are added using: npx shadcn-ui@latest add button
+
+Transactions and euro rates are most likely a data source that will be used in many places on the app, to prevent having the re-fetch this information many times we can implement a globalContext that is responsible for fetching and serving that data to different components/pages.
+
+Alternatively we could also use React Queries
