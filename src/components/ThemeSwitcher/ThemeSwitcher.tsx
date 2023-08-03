@@ -1,6 +1,8 @@
+"use client"
+
 import { useState, useEffect } from "react";
 import { Button } from "@/ui/button";
-import Image from "next/image";
+import { MoonIcon, SunIcon } from "lucide-react";
 
 const ThemeSwitcher = () => {
   const [darkMode, setDarkMode] = useState<"dark" | "light">();
@@ -33,23 +35,9 @@ const ThemeSwitcher = () => {
   return (
     <Button onClick={toggleTheme} className="px-3 py-1" variant="outline">
       {darkMode === "light" ? (
-        <div>
-          <Image
-            width={16}
-            height={16}
-            src="/images/dark.svg"
-            alt="dark mode icon"
-          />
-        </div>
+        <MoonIcon size={16}/>
       ) : (
-        <div>
-          <Image
-            width={16}
-            height={16}
-            src="/images/light.svg"
-            alt="light mode icon"
-          />
-        </div>
+        <SunIcon size={16}/>
       )}
     </Button>
   );
