@@ -26,20 +26,25 @@ Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 ## Observations about the solution
 
-In this app we are using next.js for it's simplified routing scheme, of of the box SSR capability and ease of deployment in vercel.
+In this app, we are using Next.js for its simplified routing scheme, out-of-the-box SSR capability, and ease of deployment on Vercel.
 
-Used Next.js App router instead of Pages router for more flexibility, performance optimization and future proofing.
+We used Next.js App router instead of Pages router for more flexibility, performance optimization, and future-proofing.
 
-Used React Query to handle data fetching, querying and caching. Makes it easier to handle infinite scrolling, refetching and retries in the future.
+React Query is used to handle data fetching, querying, and caching. It makes it easier to handle infinite scrolling, refetching, and retries in the future.
 
-React Query uses re-fetch on page focus, since the mock BE randomly assigns EUR conversion values, seems like the prices jump all over the place, but that is because the variation is too big, in an actual app, tha implemented behaviour would be ideal, since updating the values of the transactions in a desired behaviour.
+React Query uses re-fetch on page focus. Since the mock backend randomly assigns EUR conversion values, it may appear that the prices jump all over the place. However, this is because the variation is too big. In an actual app, this implemented behavior would be ideal, as updating the values of the transactions in a desired behavior.
 
-Used React.lazy and Suspense to lazy load the bigger components reducing the initial js bundle that has to be loaded to improve the first page load time.
+We used React.lazy and Suspense to lazy load the bigger components, reducing the initial JS bundle that needs to be loaded and improving the first page load time.
 
-DynamicTable component features mobile spcific collumn rendering. Along with defining the different collumns, which field the data comes from as well as custom rendering for each cell, the component also allows you to define which collumns will show up or be hidden when inside the mobile breakpoint.
+The DynamicTable component features mobile-specific column rendering. Along with defining the different columns and which field the data comes from, as well as custom rendering for each cell, the component also allows you to define which columns will show up or be hidden when inside the mobile breakpoint.
 
-Shared components, hooks and types are placed under src/ and while app/ folder is reserved for rounting and subfolders are able to hold feature specific components, hooks and types
+Shared components, hooks, and types are placed under src/, while the app/ folder is reserved for routing, and subfolders are able to hold feature-specific components, hooks, and types.
 
-Used https://ui.shadcn.com/ for component library. Easy to use, supports typescript, completely customisable, compatible with tailwindCSS. Components are added using: npx shadcn-ui@latest add \[component\]
+We used https://ui.shadcn.com/ for the component library. It is easy to use, supports TypeScript, completely customizable, and compatible with Tailwind CSS. Components are added using: npx shadcn-ui@latest add [component].
 
-As described on the task requirements, I did not focus on styling the app or making a visually striking landing page. I think what you guys are looking for is someone who knows how to use a modern stack, builds for scale and creates webapps with good performance. That's what this solution does. It is modern, well structured and performatic with components that are modular and maintainable.
+As described in the task requirements, I did not focus on styling the app or creating a visually striking landing page. I believe you are looking for someone who knows how to use a modern stack, builds for scale, and creates web apps with good performance. That's what this solution does. It is modern, well-structured, and performant with components that are modular and maintainable.
+
+
+
+
+
