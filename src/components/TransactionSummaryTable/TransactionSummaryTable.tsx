@@ -1,7 +1,7 @@
 import { EurRates, Transaction } from "@/types/transactions";
 import { useEffect } from "react";
 import { applyPrecision } from "@/utils";
-import { DynamicTable } from "@/components/DynamicTable/DynamicTable";
+import { DynamicTable, DynamicTableCol } from "@/components/DynamicTable/DynamicTable";
 import { useSummary } from "@/hooks/useSummary";
 import {
   Tooltip,
@@ -21,10 +21,11 @@ const TransactionSummaryTable: React.FC<TransactionSummaryTableProps> = ({
 }) => {
   const { summaryArray } = useSummary(transactions, eurRates);
 
-  const cols = [
+  const cols: DynamicTableCol[] = [
     {
       header: "Currency",
       dataKey: "currency",
+      showOnMobile: true,
     },
     {
       header: "Completed Withdrawals",
@@ -45,12 +46,14 @@ const TransactionSummaryTable: React.FC<TransactionSummaryTableProps> = ({
     {
       header: "Balance",
       dataKey: "",
+      showOnMobile: true,
       render: (summary: any) =>
         `${applyPrecision(summary.totalBalance)} ${summary.currency}`,
     },
     {
       header: "Balance EUR Equiv",
       dataKey: "",
+      showOnMobile: true,
       render: (summary: any) => {
         return summary.balanceEurEquiv ? (
           `${applyPrecision(summary.balanceEurEquiv)} €`

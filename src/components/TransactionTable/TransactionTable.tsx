@@ -1,6 +1,6 @@
 import { EurRates, Transaction } from "@/types/transactions";
 import { applyPrecision, formatDate } from "@/utils";
-import { DynamicTable } from "@/components/DynamicTable/DynamicTable";
+import { DynamicTable, DynamicTableCol } from "@/components/DynamicTable/DynamicTable";
 import {
   Tooltip,
   TooltipContent,
@@ -27,7 +27,7 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
       : null;
   };
 
-  const cols = [
+  const cols: DynamicTableCol[] = [
     {
       header: "Timestamp",
       dataKey: "",
@@ -40,6 +40,7 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
     {
       header: "Amount",
       dataKey: "",
+      showOnMobile: true,
       render: (transaction: Transaction) =>
         `${transaction.amount} ${transaction.currency}`,
     },
@@ -71,10 +72,12 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
     {
       header: "Type",
       dataKey: "type",
+      showOnMobile: true,
     },
     {
       header: "Status",
       dataKey: "status",
+      showOnMobile: true,
     },
   ];
 
